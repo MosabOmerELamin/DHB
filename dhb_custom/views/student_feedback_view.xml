@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Form View -->
+    <record id="view_student_feedback_form" model="ir.ui.view">
+        <field name="name">student.feedback.form</field>
+        <field name="model">student.feedback</field>
+        <field name="arch" type="xml">
+            <form string="Student Feedback">
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="channel_id"/>
+                        <field name="feedback_file" widget="binary"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_student_feedback_tree" model="ir.ui.view">
+        <field name="name">student.feedback.tree</field>
+        <field name="model">student.feedback</field>
+        <field name="arch" type="xml">
+            <tree string="Student Feedback">
+                <field name="student_id"/>
+                <field name="channel_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Tree View -->
+    <record id="action_student_feedback_tree" model="ir.actions.act_window">
+        <field name="name">Student Feedback</field>
+        <field name="res_model">student.feedback</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_student_feedback" 
+    name="Student Feedback"
+    parent="website_menu_student"
+    action="action_student_feedback_tree"/>
+
+</odoo>

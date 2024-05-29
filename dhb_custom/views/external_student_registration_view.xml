@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Form View for External Student Registration -->
+<record model="ir.ui.view" id="external_student_registration_form_view">
+    <field name="name">external.student.registration.form</field>
+    <field name="model">external.student.registration</field>
+    <field name="arch" type="xml">
+        <form string="External Student Registration">
+            <sheet>
+                <group>
+                      <field name="student_id" 
+                    invisible="1"
+                    />
+                    <field name="learner_number"/>
+                    <field name="learner_first_name"/>
+                    <field name="learner_surname"/>
+                    <field name="qualification"/>
+                    <field name="mode_of_study"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+    <!-- Tree View for External Student Registration -->
+<record model="ir.ui.view" id="external_student_registration_tree_view">
+    <field name="name">external.student.registration.tree</field>
+    <field name="model">external.student.registration</field>
+    <field name="arch" type="xml">
+        <tree string="External Student Registrations">
+            <field name="learner_number"/>
+            <field name="student_id" invisible="1"/>
+            <field name="learner_first_name"/>
+            <field name="learner_surname"/>
+            <field name="qualification"/>
+            <field name="mode_of_study"/>
+        </tree>
+    </field>
+</record>
+
+
+<!-- Action to Open the Tree and Form Views -->
+<record model="ir.actions.act_window" id="action_external_student_registration">
+    <field name="name">External Student Registrations</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">external.student.registration</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- Menu Item for External Student Registration -->
+<menuitem id="menu_external_student_registration"
+          name="External Student Registrations"
+          parent="website_menu_student"
+          action="action_external_student_registration"/>
+
+
+</odoo>    

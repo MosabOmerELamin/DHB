@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View for Internal Student Registration -->
+<record model="ir.ui.view" id="view_internal_student_registration_form">
+    <field name="name">internal.student.registration.form</field>
+    <field name="model">internal.student.registration</field>
+    <field name="arch" type="xml">
+        <form string="Internal Student Registration">
+            <sheet>
+                       <!-- Personal Information Group -->
+                <group string="Personal Information">
+                    <field name="student_id" 
+                    invisible="1"
+                    />
+                    <field name="student_no"/>
+                    <field name="title"/>
+                    <field name="forenames_given_name"/>
+                    <field name="surname_family_name"/>
+                    <field name="gender"/>
+                    <field name="dob"/>
+                    <field name="nationality"/>
+                    <field name="mail_address"/>
+                </group>
+
+                <!-- Address Details Group -->
+                <group string="Address Details">
+                    <field name="address_line1"/>
+                    <field name="address_line2"/>
+                    <field name="address_line3"/>
+                    <field name="address_line4"/>
+                    <field name="town_city"/>
+                    <field name="county"/>
+                    <field name="postcode"/>
+                    <field name="country_id"/>
+                </group>
+
+                <!-- Contact Information Group -->
+                <group string="Contact Information">
+                    <field name="work_phone"/>
+                    <field name="home_phone"/>
+                    <field name="mobile_phone"/>
+                    <field name="email"/>
+                </group> 
+                <!-- Exam Information Group -->
+                
+                 <group string="Exam Information">
+                    <field name="Practical_exam"/>
+                    <field name="Theoretical_exam"/>
+                    <field name="both_exam"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<!-- Tree View for Internal Student Registration -->
+<record model="ir.ui.view" id="view_internal_student_registration_tree">
+    <field name="name">internal.student.registration.tree</field>
+    <field name="model">internal.student.registration</field>
+    <field name="arch" type="xml">
+        <tree string="Internal Student Registrations">
+            <field name="student_no"/>
+            <field name="surname_family_name"/>
+            <field name="forenames_given_name"/>
+            <field name="gender"/>
+            <field name="dob"/>
+            <field name="email"/>
+            <field name="country_id"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Action to Open the Views -->
+<record model="ir.actions.act_window" id="action_internal_student_registration">
+    <field name="name">Internal Student Registrations</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">internal.student.registration</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- Menu Item for the Action -->
+<menuitem id="menu_exam_registration"
+          name="Exam Registrations"
+          parent="website_slides.website_slides_menu_root"/>
+
+<menuitem id="menu_internal_student_registration"
+          name="Internal Student Registrations"
+          parent="menu_exam_registration"
+          action="action_internal_student_registration"/>          
+
+</odoo>    

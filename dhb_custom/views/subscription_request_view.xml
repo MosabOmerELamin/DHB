@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+        <record id="view_subscription_request_form" model="ir.ui.view">
+            <field name="name">subscription.request.form</field>
+            <field name="model">subscription.request</field>
+            <field name="arch" type="xml">
+                <form string="Subscription Request">
+                    <header>
+                        <button string="Confirm" name="action_confirm" states="draft" type="object" class="oe_highlight" 
+                             />
+                        <!-- <button string="Set To Draft" name="set_to_draft" states="confirm" type="object" class="oe_highlight" 
+                             />
+                        <button string="Cancel" name="action_cancel" states="confirm" type="object" class="oe_highlight" 
+                             />
+         -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="batch_id"/>
+                            <field name="paid"/>
+                        </group>
+                    
+                        <notebook>
+                            <page string="Images">
+                                <group>
+                                    <field name="student_img"/>
+                                    <field name="student_identity_img"/>
+                                    <field name="transaction_img"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_subscription_request_tree" model="ir.ui.view">
+            <field name="name">subscription.request.tree</field>
+            <field name="model">subscription.request</field>
+            <field name="arch" type="xml">
+                <tree string="Subscription Requests">
+                    <field name="student_id"/>
+                    <field name="batch_id"/>
+                    <field name="paid"/>
+                    <field name="student_img" invisible="1"/>
+                    <field name="student_identity_img" invisible="1"/>
+                    <field name="transaction_img" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="action_subscription_request_tree" model="ir.actions.act_window">
+            <field name="name">Subscription Requests</field>
+            <field name="res_model">subscription.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <menuitem name="Subscription"
+            id="subscription_request_menu"
+            parent="website_menu_student"
+            action="action_subscription_request_tree"
+            sequence="1"/>
+
+
+
+</odoo>    

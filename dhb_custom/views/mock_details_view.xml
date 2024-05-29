@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_mock_details_form" model="ir.ui.view">
+        <field name="name">mock.details.form</field>
+        <field name="model">mock.details</field>
+        <field name="arch" type="xml">
+            <form string="Mock Details">
+                <sheet>
+                    <group string="Student Answer">
+                        <field name="student_id"/>
+                        <field name="answer_file" widget="binary"/>
+                    </group>
+
+                    <group string="Task 1">
+                        <field name="task1"/>
+                    </group>
+                    <group string="Task 2">    
+                        <field name="task2"/>
+                    </group>    
+                    <group string="Task 3">
+                        <field name="task3"/>
+                    </group>
+                    <group string="Task 4">    
+                        <field name="task4"/>
+                    </group>
+                    <group string="Task 5">    
+                        <field name="task5"/>
+                    </group>    
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_mock_details_tree" model="ir.ui.view">
+        <field name="name">mock.details.tree</field>
+        <field name="model">mock.details</field>
+        <field name="arch" type="xml">
+            <tree string="Mock Details">
+                <field name="student_id"/>
+                <field name="answer_file" widget="binary"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for opening the tree view -->
+    <record id="action_mock_details_tree" model="ir.actions.act_window">
+        <field name="name">Mock Details</field>
+        <field name="res_model">mock.details</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_mock_details_tree"/>
+    </record>
+
+    <menuitem name="Mock Details"
+            id="mock_detailst_menu"
+            parent="mock_exam_menu" 
+            action="action_mock_details_tree"
+            sequence="20"/>
+
+</odoo>    

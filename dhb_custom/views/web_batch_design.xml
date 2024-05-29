@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- <template id="assets_frontend" inherit_id="web.assets_frontend"> -->
+        <!-- <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/dhb_custom/static/css/web_batch_design_css.css"/>
+        </xpath> -->
+    <template id="template_batch_calendar" name="templete batch calender" > 
+            <head> <link rel="stylesheet" type="text/css" href="/dhb_custom/static/web_batch_design_css.css"/></head>
+            
+    <div class="course-calendar-container">
+        <h2>Upcoming NEBOSH IG Course Calendar</h2>
+        <table class="course-calendar">
+            <thead>
+                <tr>
+                    <th>Batch</th>
+                    <th>NEBOSH IG 1<br/>Start Date</th>
+                    <th>NEBOSH IG 2<br/>End Date</th>
+                    <th>Exam Date</th>
+                    <th>Register</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="batch-label day-batch">Day Batch</td>
+                    <td>03rd to 09th Oct-23</td>
+                    <td>10th to 16th Oct-23</td>
+                    <td>08th Nov-23</td>
+                    <td>
+                        <a href="#" class="btn btn-enquire">Enquire Now</a>
+                        <a href="#" class="btn btn-enroll">Enroll Now</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="batch-label evening-batch">Evening Batch</td>
+                    <td>18th to 30th Sep-23</td>
+                    <td>03rd to 16th Oct-23</td>
+                    <td>08th Nov-23</td>
+                    <td>
+                        <a href="#" class="btn btn-enquire">Enquire Now</a>
+                        <a href="#" class="btn btn-enroll">Enroll Now</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </template>
+</odoo>        
+    

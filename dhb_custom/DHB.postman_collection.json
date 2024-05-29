@@ -1,0 +1,362 @@
+{
+	"info": {
+		"_postman_id": "940e0fbb-3d75-4827-b9cf-cbfc433ad239",
+		"name": "DHB",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"arabicName\":\"arabicName\",\r\n    \"firstName\":\"\",\r\n    \"secondName\":\"\",\r\n    \"thirdName\":\"\",\r\n    \"fourthName\":\"\",\r\n    \"email\":\"\",\r\n    \"mobile\":\"\",\r\n    \"password\":\"\",\r\n    \"userType\":\"\",\r\n    \"studyLang\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "/Register/d",
+							"path": [
+								"Register",
+								"d"
+							]
+						},
+						"description": "return user object as json after create user."
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/Register",
+									"path": [
+										"Register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						},
+						"description": "return user object as json if user is exist."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "App Instructions",
+			"item": [
+				{
+					"name": "Get english exam",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "getEnglishExam",
+							"host": [
+								"getEnglishExam"
+							]
+						},
+						"description": "english exam.\r\n\r\n\r\n1- Question object must be like.\r\n  int id;\r\n  String text;\r\n  String type;\r\n  int testId;\r\n  Tests test;\r\n  List<Choice> choices; //question object consist list of    choiced  class.\r\n\r\n* (type) means the type of question (mcq , true or false).\r\n\r\n2- Choice object must be like.\r\n\r\n  int id;\r\n  String text;\r\n  bool isCorrect;\r\n  String questionId;\r\n  "
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/getAppInstructions",
+									"path": [
+										"getAppInstructions"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get intro video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "GetIntroVideoUrl",
+							"host": [
+								"GetIntroVideoUrl"
+							]
+						},
+						"description": "this request gets the introductary video URL."
+					},
+					"response": []
+				},
+				{
+					"name": "Submit English Exam Answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":[\r\n        {\r\n            \"id\":\"\",\r\n            \"answer\":\"\",\r\n             \"correctanswer\":\"\",\r\n              \"isCorrect\":\"\",\r\n               \"questionId\":\"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "submitEnglishExamAnswer",
+							"host": [
+								"submitEnglishExamAnswer"
+							]
+						},
+						"description": "english exam answers"
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/submitenglishExamAnswer",
+									"path": [
+										"submitenglishExamAnswer"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Get Courses List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "getCoursesList",
+							"host": [
+								"getCoursesList"
+							]
+						},
+						"description": "list courses\r\n\r\n* Course object be like\r\nint id;                 \r\nString name;            \r\ndouble price;                    \r\nString imageUrl;            \r\n    "
+					},
+					"response": [
+						{
+							"name": "Default",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/getCoursesList",
+									"path": [
+										"getCoursesList"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Course Details",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "getCourseDetails",
+							"host": [
+								"getCourseDetails"
+							]
+						},
+						"description": "\r\nCourse object must contains :\r\n\r\n//Course\r\nint id;                 \r\nString name;            \r\ndouble price;           \r\nString details;         \r\nString imageUrl;       \r\nString videoUrl;\r\nString pdfUrl;       \r\nDateTime? startDate;    \r\nDateTime? endDate;      \r\nDateTime? examDate;     \r\n\r\n//Video Quiz\r\nGet list of question with choices.\r\n\r\n//Pre-course exam \r\nGet list of question with choices. \r\n\r\n// courses names list\r\nGet list of courses names of that course contains it.\r\n\r\n\r\n\r\n\r\n\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Submit development action plan",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"previosCenterName\":\"\",\r\n    \"reasonOfLeavingCenter\":\"\",\r\n    \"serialNumber\":\"\",\r\n    \"previosResultImageUrl\":\"\",\r\n    \"coursesNames\":[\r\n        \"course1\",\r\n        \"course2\",\r\n        \"course3\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "devPlan",
+							"host": [
+								"devPlan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Video Quiz Answers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":[\r\n        {\r\n             \"id\":\"\",\r\n             \"answer\":\"\",\r\n             \"correctanswer\":\"\",\r\n             \"isCorrect\":\"\",\r\n             \"questionId\":\"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "submitVideoQuizAnswers",
+							"host": [
+								"submitVideoQuizAnswers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Subscribe Course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\":\"\",\r\n    \"personalImageUrl\":\"\",\r\n    \"personaIdentitylImageUrl\":\"\",\r\n    \"TransactionImageUrl\":\"\"\r\n \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "subscribeCourse",
+							"host": [
+								"subscribeCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit Pre-Course Exam Answers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"data\":[\r\n        {\r\n             \"id\":\"\",\r\n             \"answer\":\"\",\r\n             \"correctanswer\":\"\",\r\n             \"isCorrect\":\"\",\r\n             \"questionId\":\"\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "this folder is for courses api\r\n"
+		}
+	]
+}

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+<template id="report_closing_interview_template">
+           <t t-call="web.html_container">
+
+
+            <t t-call="web.basic_layout">
+                 <t t-foreach="docs" t-as="o">
+                <div class="page">
+                     <style type="text/css">
+                       .header-table {
+                                width: 100%;
+                                  border-collapse: collapse;
+                                  border-spacing: 0;
+                                    border: none;
+                            }
+                        .header-table, .header-table tr, .header-table td {
+                        border: none !important; 
+                        padding: 0 !important; 
+                    }
+                        
+
+                            .title-cell {
+                                font-weight: bold;
+                                text-align: left;
+                                padding-left: 20px; /* Add padding as needed */
+                                vertical-align: top;
+                            }
+                            .header-table td {
+                                border: none; /* Remove border from table cells */
+                            }
+
+                            .spacer-cell {
+                                width: 20%; /* Adjust width as needed to create space */
+                            }
+
+                            .logo-cell {
+                                text-align: right;
+                                padding-right: 20px; /* Add padding as needed */
+                                vertical-align: top;
+                            }
+
+                            .logo-cell img {
+                                width: 100px; /* Adjust size as needed */
+                                height: 100px; /* Maintain aspect ratio */
+                            }
+
+                        <!-- .header1 {
+                            display: flex;
+                            justify-content: space-between;
+                             align-items: flex-start;
+                            padding: 10px 20px;
+                            margin-top: -20px;  /* Adjust this value as needed */
+                        }
+
+                        .header1 .title {
+                            font-weight: bold;
+                            text-align: left;
+                             margin: 0;
+                             padding: 0;
+                        }
+
+                        .header1 .logo img {
+                            width: 100px; /* Adjust size as needed */
+                            height: auto;
+                        }
+                        
+
+
+                        /* Style for the logo */
+                        .header1 .logo {
+                            /* Position the logo to the top right corner */
+                            text-align: right;
+                            right: 20px; /* Adjust as needed */
+                             margin: 0;
+                             padding: 0;
+                        
+                            
+                        } -->
+                        
+                        table {
+                            width: 100%;
+                            border:1px solid #000000 !important;
+                            <!-- border-collapse: collapse; -->
+                        }
+                        td {
+                            padding: 8px;
+                            border: solid 1px #000;
+                        }
+                        .checkbox-label {
+                        display: block;
+                        margin: 2px 0;
+                        }
+                        <!-- .note-label {
+                        width: 15%;
+                        }
+                        .note-textarea-td {
+                        width: 85%;
+                        } -->
+                        thead th {
+                            background-color: #f2f2f2;
+                            border: 1px solid black;
+                        }
+                        .logo img {
+                            width: 200px;
+                            height: 100px;
+                        }
+                        textarea {
+                        width: 100%;
+                        height: 100px; /* Adjust height as needed */
+                    }
+                    .notes-label {
+                        vertical-align: top; /* Ensure the "Notes:" label is at the top of the cell */
+                        padding-top: 8px; /* Adjust padding as needed to align with other cells */
+                    }
+                    .header3 {
+                        font-weight: bold;
+                page-break-before: always; /* This ensures the div will start on a new page */
+            }
+                    .header5{
+                         page-break-before: always;
+                    }
+
+                     
+                    </style>
+               
+
+                <!-- <head class="header"> -->
+                <!-- <head class="header"> -->
+                    <!-- <div class="header1">
+                   
+                    <div class="title">
+                        <span>NEBOSH Open Book Examination</span><br/>
+                        <span>Closing Interview Record Sheet</span><br/>
+                        <span>Part 1: Details</span>
+                    </div>
+                    <div class="logo" >
+                        <img class="img img-responsive"  t-att-src="'/dhb_custom/static/src/img/logo.jpg'"  alt="Nebosh Logo" style="width: 100px; height: 100px;" />
+                    </div>
+
+                </div> -->
+                <!-- </head> -->
+                <table class="header-table">
+                    <tr>
+                        <td class="title-cell">
+                            <span>NEBOSH Open Book Examination</span><br/>
+                            <span>Closing Interview Record Sheet</span><br/>
+                            <span>Part 1: Details</span>
+                        </td>
+                        <td class="spacer-cell"></td>
+                        <td class="logo-cell">
+                            <img src="/dhb_custom/static/src/img/logo.jpg" alt="Nebosh Logo" />
+                        </td>
+                    </tr>
+                </table>
+
+                <br/>
+                <br />
+                
+
+                   <table  >
+                        <tr>
+                            <td style="background-color: #E0E0E0;" >Learner Name</td>
+                            <td colspan="3"><t t-esc="o.learner_name"/></td>
+                            
+                        </tr>
+                        <tr>
+                            <td style="background-color: #E0E0E0;">NEBOSH Learner Number</td>
+                            <td><t t-esc="o.nebosh_learner_number"/></td>
+                            <td style="background-color: #E0E0E0;">Date of Birth</td>
+                            <td><t t-esc="o.date_of_birth"/></td>
+                           
+                        </tr>
+                        <tr>
+                            <td style="background-color: #E0E0E0;" >Learning Partner Name</td>
+                            <td colspan="3"><t t-esc="o.learning_partner_name"/></td>
+                            
+                          
+                        </tr>
+                        <tr>
+                            <td style="background-color: #E0E0E0;">Learning Partner Number</td>
+                            <td><t t-esc="o.learning_partner_number"/></td>
+                             <td style="background-color: #E0E0E0;">Date of OBE</td>
+                            <td><t t-esc="o.date_of_obe"/></td>
+                         
+                        </tr>
+                        <tr>
+                            <td style="background-color: #E0E0E0;">Name of Interviewer</td>
+                            <td colspan="3"><t t-esc="o.name_of_interviewer"/></td>
+                        </tr>
+                        <tr>
+                            <td style="background-color: #E0E0E0;">Date of Closing Interview</td>
+                            <td><t t-esc="o.date_of_closing_interview"/></td>
+                            <td style="background-color: #E0E0E0;">Time of Closing Interview</td>
+                            <td><t t-esc="o.time_of_closing_interview"/></td>
+
+                        </tr>
+                      
+                    </table>
+                      <br/>
+                        <br />
+                    
+
+                <div class="headers">
+                    <span style="font-weight: bold;">Part 2: Introduction and Identity Check</span>
+                </div>
+                 <br/>
+                        <br />
+
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Interviewer introduced themself to the learner</td>
+                        <td><input type="checkbox" t-att-checked="'checked' if o.interviewer_introduced else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Interviewer explained the structure of the interview</td>
+                        <td><input type="checkbox" t-att-checked="'checked' if o.interview_structure_explained else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Type of identification provided by learner</td>
+                        <td colspan="3">
+                            <label class="checkbox-label"><input type="checkbox" t-att-checked="'checked' if o.identification_type == 'passport' else None" disabled="disabled"/> Passport</label>
+                            <label class="checkbox-label"><input type="checkbox" t-att-checked="'checked' if o.identification_type == 'drivers_license' else None" disabled="disabled"/> Driver's License</label>
+                            <label class="checkbox-label"><input type="checkbox" t-att-checked="'checked' if o.identification_type == 'national_id' else None" disabled="disabled"/> National ID</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Identification was satisfactory</td>
+                        <td>Yes <input type="checkbox" t-att-checked="'checked' if o.identification_satisfactory else None" disabled="disabled"/> No <input type="checkbox" t-att-checked="'checked' if not o.identification_satisfactory else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Interviewer satisfied with the room in which the learner took the interview</td>
+                        <td>Yes <input type="checkbox" t-att-checked="'checked' if o.room_satisfactory else None" disabled="disabled"/> No <input type="checkbox" t-att-checked="'checked' if not o.room_satisfactory else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Interviewer satisfied that there were no unauthorised resources</td>
+                        <td>Yes <input type="checkbox" t-att-checked="'checked' if o.no_unauthorised_resources else None" disabled="disabled"/> No <input type="checkbox" t-att-checked="'checked' if not o.no_unauthorised_resources else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #E0E0E0;">Interviewer satisfied that no other people were in the room</td>
+                        <td>Yes <input type="checkbox" t-att-checked="'checked' if o.no_unauthorised_people else None" disabled="disabled"/> No <input type="checkbox" t-att-checked="'checked' if not o.no_unauthorised_people else None" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td class="notes-label" style="background-color: #E0E0E0;">Notes:</td>
+                        <td><textarea t-esc="o.notes" disabled="disabled" style="width:100%;"></textarea></td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+             
+
+                 <div class="header3"  >Part 3: Specific questions
+                    <p>Please select three questions from the <em>Specific Questions for the Closing Interview</em> sheet for the relevant sitting.</p>
+                 </div>
+                 <table style=" width: 100%;
+                            border-collapse: collapse;
+                        }
+                        th, td {
+                            border: 1px solid black;
+                            padding: 8px;
+                        }">
+                        <thead >
+                            <tr>
+                                <th>Task number for specific question</th>
+                                <th>Notes on the learner's response</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.interview_questions_ids" t-as="q">
+                                <tr>
+                                    <td><t t-esc="q.question"/></td>
+                                    <td><t t-esc="q.response"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <td style="background-color: #f2f2f2;width=100% " colspan="3">Any other notes</td>
+                    </table>   
+                   
+                    
+                    <div>
+                            
+                        
+                        <div style="border: 1px solid black; min-height: 100px; padding: 8px;">
+                            <t t-esc="o.question_notes"/>
+                        </div>
+                    </div>
+
+                    <div>
+
+                    <p>Please send this completed sheet to your contact at the Learning Partner.</p>
+                     </div>
+                      
+
+
+
+
+                </div>
+            <br/>
+                        <br />
+                <div style="margin-top: 20px;">
+                    <div style="background-color: #f2f2f2; padding: 8px;">
+                        <strong>Part 4: Notifying NEBOSH of repeated failures by a learner to attend a closing interview</strong>
+                    </div>
+                    <div style="border: 1px solid black; min-height: 100px; padding: 8px;">
+                        <t t-esc="o.notification_info"/>
+                    </div>
+                </div>
+                <div class="header5">
+
+                <div style="margin-top: 20px;">
+                    <div style="background-color: #f2f2f2; padding: 8px;">
+                        <strong>Part 5: Further Concerns</strong>
+                    </div>
+                    <div style="border: 1px solid black; padding: 8px;">
+                        <p style="background-color: #f2f2f2;"><strong>Nature of concern </strong><br/> Please provide full details of any concerns you have so that NEBOSH can decide whether the matter requires further investigation with the learner.<br/><p> <t t-esc="o.nature_of_concern"/></p></p>                        <hr/>
+                        <p style="background-color: #f2f2f2;"><strong>What is your concern?</strong><br/> Were you satisfied with the identification provided by the learner? If not, please explain why.<br/> <p><t t-esc="o.satisfaction_identification"/></p></p>
+                        <hr/>
+                        <p style="background-color: #f2f2f2;"><strong>Were you satisfied by the answers the learner provided to the questions?</strong><br/> If not, please provide the questions you asked and the reasons for your concern.<br/> <p><t t-esc="o.satisfaction_answers"/></p></p>
+                        <hr/>
+                        <p style="background-color: #f2f2f2;"><strong>Do you think the learner may have had unauthorized assistance during their preparation of their OBE or during the closing interview?</strong><br/> If you do, please explain why you think this is.<br/><p> <t t-esc="o.concern_unauthorized_assistance"/></p></p>
+                        <hr/>
+                        <p style="background-color: #f2f2f2;"><strong>Please provide details of any other concerns that you have.</strong><br/> <p><t t-esc="o.other_concerns"/></p></p>
+                    </div>
+                </div>
+                </div>
+
+
+                    
+                </t>
+
+            
+
+
+            </t>
+            </t>
+    </template>
+</odoo>

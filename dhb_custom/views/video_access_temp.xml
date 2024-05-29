@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="unique_assets_frontend_inherit"  name="Video Access Assets">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/dhb_custom/static/src/video_access.js"></script>
+        </xpath>
+    </template>  
+
+    
+
+
+
+</odoo>    

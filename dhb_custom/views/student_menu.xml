@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Remove menu items -->
+    <data>
+        <!-- Hide the default menu item under website_slides -->
+        <record id="website_slides.website_slides_menu_report" model="ir.ui.menu">
+            <field name="active" eval="False"/>
+            <field name="name">Reporting</field>
+        </record>
+    </data>
+
+
+   
+    
+    <menuitem name="Students"
+        id="website_menu_student"
+        parent="website_slides.website_slides_menu_root"
+        sequence="4"/>
+    <menuitem name="Student Details"
+        id="menu_student_detalis"
+        parent="website_menu_student"
+        action="action_tc_student"
+        sequence="4"/>
+
+
+</odoo>

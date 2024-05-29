@@ -1,0 +1,82 @@
+<odoo>
+    <record id="view_slide_slide_form_inherit" model="ir.ui.view">
+        <field name="name">slide.slide.form.inherit</field>
+        <field name="model">slide.slide</field>
+        <field name="inherit_id" ref="website_slides.view_slide_slide_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <!-- Add new page here -->
+                <page string="Student Attendance">
+                    <!-- <header>
+                        <button name="action_generate_data_for_all" type="object" string="Generate Data for All" class="oe_highlight"/>
+                    </header> -->
+                    <field name="attendance_ids">
+                        <tree editable="bottom">
+                            <field name="student_id"/>
+                            <field name="is_offline_attended"/>
+                            <field name="is_manual_attended"/>
+                            <field name="reason_of_absence"/>
+                            <!-- Add more fields as necessary -->
+                        </tree>
+                        <form>
+                            <group>
+                                <field name="student_id"/>
+                                <field name="is_offline_attended"/>
+                                <field name="is_manual_attended"/>
+                            </group>
+
+                            <field name="reason_of_absence"/>
+                            <!-- Add more fields as necessary -->
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="after">
+                <!-- Adding slide_seq field after user_id field -->
+                <field name="slide_seq"/>
+            </xpath>
+
+            <xpath expr="//field[@name='slide_seq']" position="after">
+                <field name="is_intro"/>
+            </xpath>
+            <xpath expr="//field[@name='video_url']" position="after">
+                <!-- Adding slide_seq field after user_id field -->
+                <field name="is_live" attrs="{'invisible': [('slide_category', '!=', 'video')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='is_live']" position="after">
+                <!-- Adding slide_seq field after user_id field -->
+                <field name="batch_id"/>
+            </xpath>
+
+
+
+        </field>
+    </record>
+
+    <record id="view_slide_channel_form_inherit" model="ir.ui.view">
+        <field name="name">view.slide.channel.form.inherit</field>
+        <field name="model">slide.channel</field>
+        <field name="inherit_id" ref="website_slides.view_slide_channel_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="intro"/>
+
+            </xpath>
+            <xpath expr="//field[@name='intro']" position="after">
+
+
+                <div class="oe_title">
+                    <label for="co_price" string="Course Price"/>
+                    <h1>
+                        <field name="co_price"/>
+                    </h1>
+                </div>
+
+
+            </xpath>
+
+
+
+        </field>
+    </record>
+</odoo>

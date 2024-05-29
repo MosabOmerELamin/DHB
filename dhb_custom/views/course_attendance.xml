@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="course_attendance_form_views" model="ir.ui.view">
+            <field name="name">Student Attendance</field>
+            <field name="name">course.attendance.form.views</field>
+            <field name="model">student.attendance</field>
+            <field name="arch" type="xml">
+            <form>
+               <sheet>
+                    <group string="Attendance Information" name="attendance_info">
+                        <group string="Student Details" name="student_details">
+                            <field name="student_id"/>
+                            <field name="course_id"/>
+                            <field name="batch_id"/>
+                            <field name="slide_id"/>
+                        </group>
+                        <group string="Attendance Status" name="attendance_status">
+                            <field name="is_offline_attended"/>
+                            <field name="is_manual_attended"/>
+                            <field name="date"/>
+                            <field name="reason_of_absence"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+            </field>
+             
+    </record>
+    
+    <record id="course_attendance_tree_view" model="ir.ui.view">
+            <field name="name">course.attendance.tree.view</field>
+            <field name="model">student.attendance</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="student_id"/>
+                    <field name="course_id"/>
+                    <field name="batch_id"/>
+                    <field name="slide_id"/>
+                    <field name="is_offline_attended"/>
+                    <field name="is_manual_attended"/>
+                    <field name="date"/>
+                    <field name="reason_of_absence"/>
+                </tree>
+            </field>
+    </record>
+
+
+    <record id="course_attendance_action" model="ir.actions.act_window">
+        <field name="name">Course Attendance</field>
+        <field name="res_model">student.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Course Attendance record
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="Course Attendance"
+        id="website_slides_menu_course_attendance"
+        parent="website_slides.website_slides_menu_root"
+        action = "course_attendance_action"
+        sequence="6"/>
+
+   
+
+</odoo>    

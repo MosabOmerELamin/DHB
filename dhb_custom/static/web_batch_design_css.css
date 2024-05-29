@@ -1,0 +1,59 @@
+<style>.course-calendar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.course-calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.course-calendar th,
+.course-calendar td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+.course-calendar thead {
+    background-color: #004080;
+    color: white;
+}
+
+.batch-label {
+    font-weight: bold;
+    text-align: center;
+}
+
+.day-batch {
+    background-color: #b3c6ff;
+}
+
+.evening-batch {
+    background-color: #404040;
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-enquire {
+    background-color: #009688;
+}
+
+.btn-enroll {
+    background-color: #2196F3;
+}
+
+</style>

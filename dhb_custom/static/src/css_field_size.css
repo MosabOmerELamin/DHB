@@ -1,0 +1,10 @@
+/* Custom styles for editable tree fields */
+td[name='question'] .o_input {
+    width: 200px;
+    /* Adjust width as needed */
+}
+
+td[name='response'] .o_input {
+    width: 400px;
+    /* Adjust width as needed */
+}

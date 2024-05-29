@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+            <!-- Form view -->
+        <record id="view_closing_interview_link_form" model="ir.ui.view">
+            <field name="name">closing.interview.link.form</field>
+            <field name="model">closing.interview.link</field>
+            <field name="arch" type="xml">
+                <form string="Closing Interview Link">
+                    <header>
+                        <button name="action_send_interview_emails" string="Send Interview Emails" type="object" class="oe_highlight"/>
+                        <!-- <button name="generate_interview_schedule" string="distribute periods" type="object" class="oe_highlight"/> -->
+                        <button name="generate_interview_schedule" string="Interview Schedule" type="object" class="oe_highlight"/>
+                        
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="meet_link"/>
+                            <field name="date"/>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                        </group>
+                            <notebook>
+                                <page name="interviews" string="interviews">
+                                    <field name="interview_ids">
+                                        <tree create="true" editable="bottom">>
+                                            <field name="student_id"/>
+                                            <field name="interview_period"/>
+                                            <!-- Other fields for the interview record -->
+                                        </tree>
+                                    </field>
+               
+                                </page>
+                            </notebook>
+                            <div class="oe_chatter">
+                                <field name="message_follower_ids" widget="mail_followers"/>
+                                <field name="message_ids" widget="mail_thread"/>
+                            </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view -->
+        <record id="view_closing_interview_link_tree" model="ir.ui.view">
+            <field name="name">closing.interview.link.tree</field>
+            <field name="model">closing.interview.link</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="meet_link"/>
+                    <field name="date"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_closing_interview_link" model="ir.actions.act_window">
+            <field name="name">Closing Interview Links</field>
+            <field name="res_model">closing.interview.link</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_closing_interview_link_tree"/>
+        </record>
+
+        <!-- Menu item -->
+        <menuitem id="menu_closing_interview_link_form"
+                  name="Closing Interview Links" 
+                  parent="menu_closing_interview_main"
+                  action="action_closing_interview_link"/>
+        
+</odoo>

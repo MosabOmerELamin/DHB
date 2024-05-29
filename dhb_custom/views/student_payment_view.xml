@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_student_payment_form" model="ir.ui.view">
+    <field name="name">student.payment.form</field>
+    <field name="model">student.payment</field>
+    <field name="arch" type="xml">
+        <form string="Student Payment">
+                <header>
+                       
+                        <field name="state" widget="statusbar" />
+                    </header>
+            <sheet>
+                <group>
+                    <field name="student_id"/>
+                    <field name="channel_id"/>
+                    <field name="move_id"/>
+
+                    <field name="course_price"/>
+                    <!-- <field name="remaining_amount"/> -->
+                    <!-- <field name="notification" widget="image" attrs="{'invisible': [('payment_method', '=', 'cash')]}"/> -->
+                </group>
+                 <notebook>
+                    <!-- Your existing fields -->
+                    <page string="Payment Details">
+                         <field name="student_payment_line_ids" widget="one2many_list">
+                            <tree string="Student Payment Lines" create="true" editable="bottom">
+                                <!-- Define columns in the tree view -->
+                                <field name="amount"/>
+                                <field name="payment_date"/>
+                                <field name="payment_method"/>
+
+                                <field name="student_payment_id" invisible="1"/>
+                                <!-- Add a button column -->
+                                <button name="action_invoice" type="object" string="Process Payment"  attrs="{'invisible': [('payment_id', '!=', False)]}"/>
+                                <field name="payment_id"/>
+                                <field name="notification" widget="image" />
+
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+<record id="view_student_payment_tree" model="ir.ui.view">
+    <field name="name">student.payment.tree</field>
+    <field name="model">student.payment</field>
+    <field name="arch" type="xml">
+        <tree string="Student Payments">
+            <field name="student_id"/>
+            <field name="channel_id"/>
+            <field name="course_price"/>
+            <!-- <field name="remaining_amount"/> -->
+            <!-- <field name="payment_method"/> -->
+        </tree>
+    </field>
+</record>
+
+<record id="action_student_payment" model="ir.actions.act_window">
+    <field name="name">Student Payments</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">student.payment</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="menu_student_payments" name="Student Payments" parent="base.menu_administration"
+          sequence="20"/>
+
+<menuitem id="menu_student_payment" 
+        name="Student Payments" 
+        parent="website_menu_student"
+        action="action_student_payment" 
+        sequence="90"/>
+
+<!-- this the tree view for student_payment_line_ids one2many field -->
+<!-- <record id="view_student_payment_line_tree" model="ir.ui.view">
+    <field name="name">student.payment.line.tree</field>
+    <field name="model">student.payment.line</field>
+    <field name="arch" type="xml">
+        <tree string="Student Payment Lines">
+            <field name="amount"/>
+            <field name="payment_date"/>
+            <field name="student_payment_id" invisible="1"/>
+            Add a button column 
+            <button name="action_payment" type="object" string="Process Payment"/>
+        </tree>
+    </field>
+</record> -->
+
+
+
+</odoo>    

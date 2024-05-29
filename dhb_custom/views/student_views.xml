@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="tc_student_view" model="ir.ui.view">
+            <field name="name">Students</field>
+            <field name="name">tc.student.view</field>
+            <field name="model">tc.student</field>
+            <field name="arch" type="xml">
+            <form>
+                <sheet>
+                <group name="student_infromation" string="Student Infromation" >
+                        <field name="serial_number"/>
+                        <field name="name"/>
+                        <field name="arabic_name"/>
+                        <field name="email"/>
+                        <field name="student_types"/>
+                        <field name="phone"/>
+
+                    
+                </group>
+                  <group name="course_infromation" string="Course Infromation">
+                        <field name="batch_ids"/>
+                        <!-- <field name="course_id"/> -->
+                        <field name="att_num" invisible="1"/>
+                        <field name="payment_id" invisible="1"/>
+                        <field name="pre_center"/>
+                </group>
+                <group attrs="{'invisible': [('pre_center', '=', False)]}">
+                    <field name="reason_you_left" />
+                    <field name="pervious_courses" />
+                    <field name="old_serial" />
+                    <field name="cant_remember" />
+                    <field name="result_img" />
+                </group>   
+                </sheet>
+            </form>
+            </field>
+             
+    </record>
+
+    <record id="tc_student_tree_view" model="ir.ui.view">
+            <field name="name">tc.student.tree.view</field>
+            <field name="model">tc.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="serial_number"/>
+                    <field name="name"/>
+
+                </tree>
+            </field>
+    </record>
+
+    <record id="action_tc_student" model="ir.actions.act_window">
+        <field name="name">Student</field>
+        <field name="res_model">tc.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your Student record
+            </p>
+        </field>
+    </record>
+    
+    
+    
+    
+</odoo>

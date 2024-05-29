@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data >
+         <!-- Define the main category -->
+        <record id="module_category_dhb" model="ir.module.category">
+            <field name="name">DHB</field>
+            <field name="description">DHB Module Category</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <record id="group_dhb_manager" model="res.groups">
+            <field name="name">DHB Manager</field>
+            <field name="category_id" ref="module_category_dhb"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- student group -->
+        <record id="group_tc_student_manager" model="res.groups">
+            <field name="name">Student Manager</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+
+        <!-- Access rights for the model for model_tc_student -->
+        <record id="model_tc_student" model="ir.model">
+            <field name="name">tc.student</field>
+            <field name="model">tc.student</field>
+        </record>
+        <!-- subsription group -->
+        <record id="group_subscription_request_manager" model="res.groups">
+            <field name="name">Subsription Manager</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- Register the model for access rights for model_subscription_request -->
+        <record id="model_subscription_request" model="ir.model">
+            <field name="name">subscription.request</field>
+            <field name="model">subscription.request</field>
+        </record>
+
+        <!-- Batch group -->
+        <record id="group_tc_batch_manager" model="res.groups">
+            <field name="name">TC Batch Manager</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- Reference the model for security -->
+        <record id="model_tc_batch" model="ir.model">
+            <field name="name">tc.batch</field>
+            <field name="model">tc.batch</field>
+        </record>
+
+        <!-- Define the model for attendnace -->
+        <record id="model_student_attendance" model="ir.model">
+            <field name="name">student.attendance</field>
+            <field name="model">student.attendance</field>
+        </record>
+        <!-- attendance group -->
+         <record id="group_student_attendance_manager" model="res.groups">
+            <field name="name">Student Attendance Manager</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- student feedback group -->
+        <record id="group_student_feedback" model="res.groups">
+            <field name="name">Student Feedback Group</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_external_student_registration -->
+        <record id="group_external_student_registration" model="res.groups">
+            <field name="name">External Student Registration</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_student_payment -->
+        <record id="group_student_payment" model="res.groups">
+            <field name="name">Student Payment</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_mock_exam -->
+        <record id="group_mock_exam" model="res.groups">
+            <field name="name">Mock Exam</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_course_attendance_report -->
+        <record id="group_course_attendance_report" model="res.groups">
+            <field name="name">Course Attendance Report</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_complaint_form -->
+        <record id="group_complaint_form" model="res.groups">
+            <field name="name">Complaint Form</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_internal_student_registration -->
+        <record id="group_internal_student_registration" model="res.groups">
+            <field name="name">Internal Student Registration</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+        <!-- group_closing_interview -->
+        <record id="group_closing_interview" model="res.groups">
+            <field name="name">Closing Interview</field>
+            <field name="category_id" ref="module_category_dhb"/>
+        </record>
+
+
+
+        
+
+    </data>
+</odoo>

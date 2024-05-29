@@ -1,0 +1,26 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tc_student_manager,tc_student_manager,model_tc_student,group_tc_student_manager,1,1,1,1
+,,,,,
+access_subscription_request_admin,subscription_request_admin,model_subscription_request,group_subscription_request_manager,1,1,1,1
+,,,,,
+access_tc_batch_manager,tc_batch_manager,model_tc_batch,group_tc_batch_manager,1,1,1,1
+,,,,
+access_student_attendance_manager,student_attendance_manager,model_student_attendance,group_student_attendance_manager,1,1,1,1
+,,,,,
+access_student_feedback,Student Feedback Access,model_student_feedback,group_student_feedback,1,1,1,1
+,,,,,
+access_external_student_registration,External Student Registration Access,model_external_student_registration,group_external_student_registration,1,1,1,1
+,,,,,
+access_student_payment,Student Payment Access,model_student_payment,group_student_payment,1,1,1,1
+,,,,,
+access_mock_exam,Mock Exam Access,model_mock_exam,group_mock_exam,1,1,1,1
+access_mock_details,Mock Details Access,model_mock_details,group_mock_exam,1,1,1,1
+,,,,,
+access_course_attendance_report,Course Attendance Report,model_course_attendance_report,group_course_attendance_report,1,1,1,1
+,,,,,
+access_complaint_form,Complaint Form,model_complaint_form,group_complaint_form,1,1,1,1
+,,,,,
+access_internal_student_registration,Internal Student Registration,model_internal_student_registration,group_internal_student_registration,1,1,1,1
+,,,,,
+access_closing_interview,Closing Interview,model_closing_interview,group_closing_interview,1,1,1,1
+access_closing_interview_link,Closing Interview Link,model_closing_interview_link,group_closing_interview,1,1,1,1

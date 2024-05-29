@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="signup_fields" inherit_id="auth_signup.fields" name="Auth Signup Ext form fields">
+    
+    <xpath expr="//div[last()]" position="after">
+        <!-- <div class="form-group field-contact_no">
+            <label for="is_studied">Have u studied in another center</label>
+            <input type="checkbox" name="is_studied" id="is_studied" class="form-control form-control-sm"/>
+        </div> -->
+        <div class="form-group field-address">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" id="phone" class="form-control form-control-sm"/>
+        </div>
+
+        <div class="form-group field-address">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" class="form-control form-control-sm"/>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <label for="checkbox_id">Have u studied in another center</label>
+                <input type="checkbox" id="is_studied" name="is_studied" t-att-checked="is_studied" />
+            </div>
+        </div>
+        <div class="form-group field-address">
+            <label for="reason">The reason you left your previous position</label>
+            <input type="text" name="reason" id="reason" class="form-control form-control-sm"/>
+        </div>
+        
+
+        
+    </xpath>
+    <xpath expr="." position="inside">
+        <script type="text/javascript" src="/dhb_custom/static/src/checkbox_script.js"></script>    
+    </xpath>    
+    
+    
+</template>
+
+
+
+
+</odoo>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <record id="view_form_closing_interview" model="ir.ui.view">
+        <field name="name">closing.interview.form</field>
+        <field name="model">closing.interview</field>
+        <field name="arch" type="xml">
+            <form string="Closing Interview">
+                <sheet>
+                    <group  string="System information">
+                        <field name="student_id" />
+                        <field name="channel_id" />
+                        <field name="active"/>
+
+                        
+                    </group>
+                    <group string="Learner Details">
+                        <field name="learner_name"/>
+                        <field name="nebosh_learner_number"/>
+                        <field name="learning_partner_name"/>
+                        <field name="learning_partner_number"/>
+                        <field name="name_of_interviewer"/>
+                        <field name="date_of_birth"/>
+                        <field name="date_of_closing_interview"/>
+                        <field name="time_of_closing_interview"/>
+                        <field name="date_of_obe"/>
+                    </group>
+                    <group string="Interview Details">
+                        <!-- Group for Interviewer Introduction and Structure Explanation -->
+                        <group string="Interview Basics">
+                            <field name="interviewer_introduced"/>
+                            <field name="interview_structure_explained"/>
+                        </group>
+                        
+                        <!-- Group for Identification Type -->
+                        <group string="Identification Type">
+                            <field name="identification_type"/>
+                        </group>
+                        
+                        <!-- Group for Identification Satisfactory -->
+                        <group string="Identification Satisfaction">
+                            <field name="identification_satisfactory"/>
+                        </group>
+                        
+                        <!-- Group for Room Satisfactory -->
+                        <group string="Room Satisfaction">
+                            <field name="room_satisfactory"/>
+                        </group>
+                        
+                        <!-- Group for Unauthorized Resources -->
+                        <group string="Resource Control">
+                            <field name="no_unauthorised_resources"/>
+                        </group>
+                        
+                        <!-- Group for No Unauthorized People -->
+                        <group string="Privacy Control">
+                            <field name="no_unauthorised_people"/>
+                        </group>
+                        
+                        <!-- Group for Notes -->
+                        <group string="Additional Notes">
+                            <field name="notes"/>
+                </group>
+                    </group>
+                     <notebook>
+                        <page string="Specific Questions">
+                            <field name="interview_questions_ids">
+                                <tree editable="bottom">
+                                     <field name="question" widget="char" placeholder="Enter the question number here..."/>
+                                     <field name="response" widget="text" placeholder="Enter detailed response here..."/>       
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group string="Questions Note ">
+                    <field name="question_notes" />
+                    </group>
+                    <group string="part 4" >
+                        <field name="notification_info"/>
+                    </group>
+                    <group string="part 5">
+                        <group  string="Nature of concern">
+                            <field name="nature_of_concern" />
+                            
+                        </group>
+                         <!-- Group for Satisfaction with Identification -->
+                        <group string="Identification Satisfaction">
+                            <field name="satisfaction_identification" widget="textarea" placeholder="Describe your satisfaction with the learner's identification..."/>
+                        </group>
+                        
+                        <!-- Group for Satisfaction with Answers -->
+                        <group string="Answers Satisfaction">
+                            <field name="satisfaction_answers" widget="textarea" placeholder="Detail your satisfaction with the answers provided..."/>
+                        </group>
+                        
+                        <!-- Group for Unauthorized Assistance Concern -->
+                        <group string="Unauthorized Assistance Concern">
+                            <field name="concern_unauthorized_assistance" widget="textarea" placeholder="Explain any concerns regarding unauthorized assistance..."/>
+                        </group>
+                        
+                        <!-- Group for Other Concerns -->
+                        <group string="Other Concerns">
+                            <field name="other_concerns" widget="textarea" placeholder="Enter any other relevant concerns..."/>
+                        </group>
+                    </group>
+                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_tree_closing_interview" model="ir.ui.view">
+        <field name="name">closing.interview.tree</field>
+        <field name="model">closing.interview</field>
+        <field name="arch" type="xml">
+            <tree string="Closing Interviews">
+                <field name="student_id" />
+                <field name="learner_name"/>
+                <field name="learning_partner_name"/>
+                <field name="date_of_closing_interview"/>
+                <field name="active"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_closing_interview" model="ir.actions.act_window">
+        <field name="name">Closing Interviews</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">closing.interview</field>
+        <field name="views" eval="[(ref('view_tree_closing_interview'), 'tree'), (ref('view_form_closing_interview'), 'form')]"/>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_closing_interview_main" 
+              name="Closing Interviews"
+              parent="website_slides.website_slides_menu_root"/>
+
+    <menuitem id="menu_closing_interview" 
+              name="Closing Interviews"
+              action="action_closing_interview"
+              parent="menu_closing_interview_main"/>
+
+    <!-- <template id="assets_backend" name="closing_interview_assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/dhb_custom/static/src/css_field_size.css"/>
+        </xpath>
+    </template>           -->
+
+
+
+
+
+</odoo>    
